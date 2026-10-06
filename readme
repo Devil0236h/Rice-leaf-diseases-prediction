@@ -1,0 +1,77 @@
+## Dataset
+
+* Dataset is cleanned and removed the dublicates. No need to run the 02_Dataset_Cleanning.ipynb and 03_Dataset_Cleaning.ipynb 
+  because the splitting is done(70% train,15% val,15% test) but do the 01_count_images_ipynb(for you understanding and viva purpose).
+* * This project uses a custom-prepared rice leaf disease dataset containing seven classes:                                                                                            
+* Bacterial Leaf Blight
+* Brown Spot
+* Healthy
+* Leaf Blast
+* Leaf Scald
+* Leaf Smut
+* Narrow Brown Spot
+
+The complete dataset is approximately **305 MB** and is hosted separately on Google Drive due to its size.
+
+**Dataset Download:**
+[Download the Custom Rice Leaf Disease Dataset](https://drive.google.com/file/d/18BHV1D9tbTUILVgqLqLU7FfbN391Hk7H/view?usp=sharing)
+
+### Dataset Path
+
+After downloading and extracting the dataset, organize it as follows:
+
+```text
+Processed_RiceDisease_Dataset/
+├── train/
+│   ├── bacterial_leaf_blight/
+│   ├── brown_spot/
+│   ├── healthy/
+│   ├── leaf_blast/
+│   ├── leaf_scald/
+│   ├── leaf_smut/
+│   └── narrow_brown_spot/
+│
+├── val/
+│   ├── bacterial_leaf_blight/
+│   ├── brown_spot/
+│   ├── healthy/
+│   ├── leaf_blast/
+│   ├── leaf_scald/
+│   ├── leaf_smut/
+│   └── narrow_brown_spot/
+│
+└── test/
+    ├── bacterial_leaf_blight/
+    ├── brown_spot/
+    ├── healthy/
+    ├── leaf_blast/
+    ├── leaf_scald/
+    ├── leaf_smut/
+    └── narrow_brown_spot/
+```
+
+Set the dataset path in the code according to your local system.
+
+Example:
+
+```python
+DATASET_PATH = r"C:\path\to\Processed_RiceDisease_Dataset"
+```
+
+## Model Performance
+
+The performance of the implemented models is compared below:
+
+| Model                                       |     Accuracy |
+| ------------------------------------------- | -----------: |
+| **CNN**                                     |   **82.00%** |
+| **ResNet50**                                |   **95.00%** |
+| **DenseNet121**                             |   **89.00%** |
+| **EfficientNetB3**                          |   **92.00%** |
+| **YOLOv11**                                 |   **97.00%** |
+| **CNN + DenseNet121**                       |   **89.32%** |
+| **EfficientNetB3 + ResNet50**               |   **93.00%** |
+| **ResNet50 + YOLOv11**                      |   **65.00%** |
+| **EfficientNetB3 + DenseNet121 (Proposed)** | **97.26% ⭐** |
+
+The proposed **EfficientNetB3 + DenseNet121 hybrid feature fusion model** achieved **97.26% accuracy**, demonstrating strong performance for multi-class rice leaf disease classification.
